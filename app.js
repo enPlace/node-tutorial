@@ -1,13 +1,11 @@
-const path = require('path'); 
+const {readFileSync, writeFileSync} = require('fs')
 
-console.log(path.sep)
+const first = readFileSync('./content/first.txt', 'utf8')
+const second = readFileSync('./content/second.txt', 'utf8')
+const mind = readFileSync('./mind-grenade.js', 'utf8')
+console.log(first, second)
+console.log(mind)
 
-const filePath = path.join('/content', 'subfolder','test.txt')
-console.log(filePath)
-const base = path.basename(filePath)
+writeFileSync('./content/result-sync.txt', `Here is the result: \n${first}\n${second}\n${mind}`)
 
-console.log(base)
-
-const absolute = path.resolve(__dirname,'content', 'subfolder', 'text.txt')
-
-console.log(absolute)
+writeFileSync('./content/result-sync.txt', '\nDoes this append to the file?', {flag:'a'})
