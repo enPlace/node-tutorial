@@ -1,11 +1,19 @@
-const {readFileSync, writeFileSync} = require('fs')
+const http = require('http')
 
-const first = readFileSync('./content/first.txt', 'utf8')
-const second = readFileSync('./content/second.txt', 'utf8')
-const mind = readFileSync('./mind-grenade.js', 'utf8')
-console.log(first, second)
-console.log(mind)
+const server = http.createServer((req, res)=>{
+	//req is incoming request
+	//res is response, what we are sending back 
+	if(req.url ==='/'){
+		res.end('Welcome to the machine')
+	}
+	if(req.url ==='/about'){
+		res.end('Where have you been?')
+	}
+	
+	else(
+		res.end('You have left the fish bowl.')
+	)
 
-writeFileSync('./content/result-sync.txt', `Here is the result: \n${first}\n${second}\n${mind}`)
+})
 
-writeFileSync('./content/result-sync.txt', '\nDoes this append to the file?', {flag:'a'})
+server.listen(4000)
