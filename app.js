@@ -1,19 +1,6 @@
-const http = require('http')
+const _ = require('lodash')
 
-const server = http.createServer((req, res)=>{
-	//req is incoming request
-	//res is response, what we are sending back 
-	if(req.url ==='/'){
-		res.end('Welcome to the machine')
-	}
-	if(req.url ==='/about'){
-		res.end('Where have you been?')
-	}
-	
-	else(
-		res.end('You have left the fish bowl.')
-	)
+const items = [1,[2,[3,[4]]]]
 
-})
-
-server.listen(4000)
+const newItems = _.flattenDeep(items)
+console.log(newItems)
