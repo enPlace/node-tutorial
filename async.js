@@ -1,7 +1,6 @@
 const {readFile, readFileSync} = require('fs')
 
 console.log("started the first task")
-//check file path 
 readFile('./content/first.txt', 'utf8', (err, result)=>{
     if (err){
         console.log(err)
