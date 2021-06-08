@@ -7,3 +7,4 @@ read('./content/first.txt', 'utf8')
         console.log(data)
     })
 
+
